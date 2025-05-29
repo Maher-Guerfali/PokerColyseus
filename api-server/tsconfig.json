@@ -13,11 +13,15 @@
     "moduleResolution": "node",
     "typeRoots": [
       "./node_modules/@types",
-      "./src/types"
+      "./src/types",
+      "."
     ],
     "types": ["node"],
     "resolveJsonModule": true
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*",
+    "global.d.ts"
+  ],
   "exclude": ["node_modules"]
 }
