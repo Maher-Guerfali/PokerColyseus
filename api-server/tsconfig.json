@@ -11,17 +11,13 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/types",
-      "."
-    ],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*", "src/types/*"]
+    },
     "types": ["node"],
     "resolveJsonModule": true
   },
-  "include": [
-    "src/**/*",
-    "global.d.ts"
-  ],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }
