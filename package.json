@@ -9,7 +9,11 @@
     "start": "node dist/index.js",
     "tsx": "tsx watch src/index.ts",
     "loadtest": "tsx loadtest/example.ts --room my_room --numClients 99",
-    "build": "tsc",
+    "build": "npm run build:game && npm run build:api",
+    "build:game": "tsc",
+    "build:api": "cd api-server && npm install && npm run build",
+    "start:api": "cd api-server && npm start",
+    "dev:api": "cd api-server && npm run dev",
     "build:start": "npm run build && npm start",
     "test": "mocha -r tsx ts-node/register test/**_test.ts --exit --timeout 15000",
     "schema-codegen": "schema-codegen src/rooms/schema/* --csharp --output ../Assets/Example/"
@@ -49,5 +53,8 @@
     "jsonwebtoken": "^9.0.2",
     "reflect-metadata": "^0.2.2",
     "typeorm": "^0.3.24"
-  }
+  },
+  "workspaces": [
+    "api-server"
+  ]
 }
