@@ -1,8 +1,20 @@
-import dotenv from 'dotenv';
-import path from 'path';
+// Environment variables
+const env: Record<string, string> = {
+  PORT: '3000',
+  JWT_SECRET: 'testPoker',
+  DB_HOST: 'localhost',
+  DB_USER: 'root',
+  DB_PASSWORD: 'PokerBase',
+  DB_NAME: 'PokerBase',
+  NODE_ENV: 'development'
+};
 
-// Load environment variables
-dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+// Set environment variables
+Object.entries(env).forEach(([key, value]) => {
+  if (!process.env[key]) {
+    process.env[key] = value;
+  }
+});
 import express from 'express';
 import cors from 'cors';
 import { AppDataSource } from './config/database';
