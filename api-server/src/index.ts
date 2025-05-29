@@ -1,8 +1,5 @@
-import dotenv from 'dotenv';
-import path from 'path';
-
 // Load environment variables
-dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+require('dotenv').config({ path: require('path').resolve(__dirname, '../../.env') });
 import express from 'express';
 import cors from 'cors';
 import { AppDataSource } from './config/database';
