@@ -4,7 +4,7 @@ import { AppDataSource } from '../config/database';
 import { User } from '../models/User';
 
 export interface AuthRequest extends Request {
-  user?: { userId: number; username: string };
+  user?: { userId: number; username: string; email: string };
 }
 
 export const auth = async (req: AuthRequest, res: Response, next: NextFunction) => {
@@ -32,7 +32,11 @@ export const auth = async (req: AuthRequest, res: Response, next: NextFunction) 
     }
 
     // Add user to request
-    req.user = { userId: user.id, username: user.username };
+    req.user = { 
+      userId: user.id, 
+      username: user.username,
+      email: user.email 
+    };
     next();
   } catch (error) {
     console.error('Authentication error:', error);
